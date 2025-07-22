@@ -1,4 +1,19 @@
 {
+  "compilerOptions": {
+  "moduleResolution": "bundler",
+  "baseUrl": ".",
+  "paths": {
+      "src/*": ["./src/*"],
+      "api/*":["./src/api/*"],
+      "assets/*":["./src/assets/*"],
+      "common/*":["./src/common/*"],
+      "hooks/*":["./src/hooks/*"],
+      "modules/*":["./src/modules/*"],
+      "router/*":["./src/router/*"],
+      "types/*":["./src/types/*"],
+      "utils/*":["./src/utils/*"],
+    }
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
