@@ -1,24 +1,24 @@
 import { Input, Button, Flex, Typography } from 'antd';
 import { socket } from 'api/chat/chat.api.ts';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { Message } from 'types/types.ts';
-import {
-  containerStyles,
-  messageStyles,
-  messagesWrapperStyles,
-  messageTitleWrapperStyles,
-  messageWrapperStyles,
-  titleStyles
-} from 'modules/chat/styles.ts';
+import { containerStyles, messagesWrapperStyles } from 'modules/chat/styles.ts';
 import { useNavigate } from 'react-router-dom';
-import { getFormattedDate } from 'utils/getFormattedDate.ts';
+import MessageWrapper from 'modules/chat/common/messageWrapper/MessageWrapper.tsx';
+
 const { TextArea } = Input;
 const { Text } = Typography;
 
 const Chat = () => {
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
   const [newMessage, setNewMessage] = useState<string>('');
   const [messages, setMessages] = useState<Message[]>([]);
   const navigate = useNavigate();
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const sendMessage = () => {
     socket.emit('new message', {
@@ -29,6 +29,10 @@ const Chat = () => {
   };
 
   useEffect(() => {
+    socket.auth = {
+      token: `Bearer ${localStorage.getItem('token')}`
+    };
+
     socket.connect();
 
     socket.on('connect_error', (error) => {
@@ -42,8 +46,8 @@ const Chat = () => {
     });
 
     socket.on('chat history', (messages: Message[]) => {
-      // TODO add scroll to end on messages upload and add
       setMessages(messages);
+      setLoading(false);
     });
 
     socket.on('new message', (message: Message) => {
@@ -58,45 +62,42 @@ const Chat = () => {
     };
   }, [navigate]);
 
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
   return (
     <Flex gap="middle" vertical style={containerStyles}>
-      <Flex gap="middle" align="start" vertical style={messagesWrapperStyles}>
-        {messages?.map((item) => {
-          return (
-            <Flex
-              key={item.id}
-              align="start"
-              vertical
-              style={messageWrapperStyles}
-            >
-              <Flex
-                justify="space-between"
-                style={messageTitleWrapperStyles}
-                wrap
-              >
-                <Text italic style={titleStyles}>
-                  {item.username}
-                </Text>
-                <Text italic style={titleStyles}>
-                  {getFormattedDate(item.created_at)}
-                </Text>
-              </Flex>
-
-              <Text style={messageStyles}>{item.content}</Text>
-            </Flex>
-          );
-        })}
-      </Flex>
+      {loading ? (
+        <Flex
+          align="center"
+          justify="center"
+          vertical
+          style={messagesWrapperStyles}
+        >
+          <Text>Loading chat...</Text>
+        </Flex>
+      ) : (
+        <Flex gap="middle" align="start" vertical style={messagesWrapperStyles}>
+          {messages.map((message) => (
+            <MessageWrapper key={message.id} {...message} />
+          ))}
+          <div ref={messagesEndRef} />
+        </Flex>
+      )}
 
       <Flex gap="middle" align="center" justify="space-between">
         <TextArea
           placeholder="Write a message..."
           rows={3}
           value={newMessage}
+          disabled={loading}
           onChange={(e) => setNewMessage(e.target.value)}
           onPressEnter={sendMessage}
         />
-        <Button onClick={sendMessage}>Send</Button>
+        <Button onClick={sendMessage} disabled={loading}>
+          Send
+        </Button>
       </Flex>
     </Flex>
   );
