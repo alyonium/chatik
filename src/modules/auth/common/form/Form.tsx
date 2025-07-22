@@ -6,7 +6,8 @@ import {
   textStyles,
   titleStyles,
   linkStyles
-} from 'modules/auth/components/login/styles.ts';
+} from 'modules/auth/common/form/styles.ts';
+import { baseContainerStyles } from 'src/styles.ts';
 import { Link } from 'react-router-dom';
 import type { UserCredentials, UserInfo } from 'types/types.ts';
 import { useState } from 'react';
@@ -73,7 +74,7 @@ const Form = ({
         initialValues={{ remember: true }}
         onFinish={onSubmit}
         autoComplete="off"
-        style={formStyles}
+        style={{ ...formStyles, ...baseContainerStyles }}
       >
         <Title level={3} style={titleStyles}>
           {title}

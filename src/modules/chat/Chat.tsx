@@ -5,6 +5,7 @@ import type { Message } from 'types/types.ts';
 import { containerStyles, messagesWrapperStyles } from 'modules/chat/styles.ts';
 import { useNavigate } from 'react-router-dom';
 import MessageWrapper from 'modules/chat/common/messageWrapper/MessageWrapper.tsx';
+import { baseContainerStyles } from 'src/styles.ts';
 
 const { TextArea } = Input;
 const { Text } = Typography;
@@ -67,7 +68,11 @@ const Chat = () => {
   }, [messages]);
 
   return (
-    <Flex gap="middle" vertical style={containerStyles}>
+    <Flex
+      gap="middle"
+      vertical
+      style={{ ...containerStyles, ...baseContainerStyles }}
+    >
       {loading ? (
         <Flex
           align="center"
