@@ -11,7 +11,7 @@ import {
 const { Title } = Typography;
 const { Header, Content } = Layout;
 
-const AuthLayout = () => {
+const BaseLayout = () => {
   return (
     <Flex gap="middle" align="center" wrap>
       <Layout style={layoutStyle}>
@@ -26,4 +26,4 @@ const AuthLayout = () => {
   );
 };
 
-export default AuthLayout;
+export default BaseLayout;

@@ -2,10 +2,14 @@ import type { CSSProperties } from 'react';
 
 export const formStyles: CSSProperties = {
   width: 400,
-  backdropFilter: 'blur(4px)',
   backgroundColor: 'white',
-  borderRadius: '5px',
-  padding: 24
+  padding: 24,
+  background: 'rgba(255, 255, 255, 0.18)',
+  borderRadius: 16,
+  boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+  backdropFilter: 'blur(5px)',
+  border: '1px solid rgba(255, 255, 255, 0.16)',
+  WebkitBackdropFilter: 'blur(5px)'
 };
 
 export const titleStyles: CSSProperties = {

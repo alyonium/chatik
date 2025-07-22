@@ -8,3 +8,10 @@ export type UserInfo = UserCredentials & {
   created_at: Date;
   token: string;
 };
+
+export type Message = {
+  id?: number;
+  username: string;
+  created_at: Date;
+  content: string;
+};

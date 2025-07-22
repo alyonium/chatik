@@ -12,11 +12,11 @@ export const headerStyle: CSSProperties = {
 export const contentStyle: CSSProperties = {
   textAlign: 'center',
   minHeight: 120,
-  lineHeight: '120px',
   color: '#fff',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  padding: 32
 };
 
 export const footerStyle: CSSProperties = {

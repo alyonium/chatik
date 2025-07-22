@@ -34,23 +34,9 @@ const Form = ({
   submitButtonText,
   submitMethod
 }: FormProps) => {
-  const [api, contextHolder] = notification.useNotification();
+  const [notificationApi, contextHolder] = notification.useNotification();
   const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
-
-  const openNotification = ({
-    message,
-    description
-  }: {
-    message: string;
-    description: string;
-  }) => {
-    api.error({
-      message,
-      description,
-      placement: 'top'
-    });
-  };
 
   const onSubmit = async (values: AntFormProps<UserCredentials>) => {
     setLoading(true);
@@ -62,15 +48,16 @@ const Form = ({
         password
       });
 
-      localStorage.setItem('Token', token);
-      localStorage.setItem('Id', `${id}`);
-      localStorage.setItem('Username', username);
+      localStorage.setItem('token', token);
+      localStorage.setItem('id', `${id}`);
+      localStorage.setItem('username', username);
 
       navigate('/chat');
     } catch (error) {
-      openNotification({
+      notificationApi.error({
         message: 'Error',
-        description: error?.message || 'Unknown error'
+        description: error?.message || 'Unknown error',
+        placement: 'top'
       });
     } finally {
       setLoading(false);
