@@ -1,18 +1,20 @@
-# Chatik 
+# Chatik
 
-### Deploy: 
+### Deploy:
 
 [View deploy 👆🏻](https://alyonium.github.io/chatik)
 
 ### Stack:
 
 #### Front
+
 - React (Vite)
 - TypeScript
 - Ant Design
 - Socket IO
 
 #### Back
+
 - TypeScript
 - Socket IO
 - node-postgres

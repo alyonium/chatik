@@ -5,7 +5,7 @@ import {
   headerStyle,
   layoutStyle,
   contentStyle,
-  titleStyles
+  titleStyles,
 } from './styles.ts';
 
 const { Title } = Typography;

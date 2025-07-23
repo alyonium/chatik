@@ -31,5 +31,5 @@ export const register = async (params: UserCredentials): Promise<UserInfo> => {
 
 export const authApi = {
   login,
-  register
+  register,
 };

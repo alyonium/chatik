@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-  "moduleResolution": "bundler",
-  "baseUrl": ".",
-  "paths": {
+    "moduleResolution": "bundler",
+    "baseUrl": ".",
+    "paths": {
       "src/*": ["./src/*"],
-      "api/*":["./src/api/*"],
-      "assets/*":["./src/assets/*"],
-      "common/*":["./src/common/*"],
-      "components/*":["./src/components/*"],
-      "hooks/*":["./src/hooks/*"],
-      "modules/*":["./src/modules/*"],
-      "router/*":["./src/router/*"],
-      "types/*":["./src/types/*"],
-      "utils/*":["./src/utils/*"],
+      "api/*": ["./src/api/*"],
+      "assets/*": ["./src/assets/*"],
+      "common/*": ["./src/common/*"],
+      "components/*": ["./src/components/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "modules/*": ["./src/modules/*"],
+      "router/*": ["./src/router/*"],
+      "types/*": ["./src/types/*"],
+      "utils/*": ["./src/utils/*"]
     }
   },
   "files": [],

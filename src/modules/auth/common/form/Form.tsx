@@ -5,7 +5,7 @@ import {
   formStyles,
   textStyles,
   titleStyles,
-  linkStyles
+  linkStyles,
 } from 'modules/auth/common/form/styles.ts';
 import { baseContainerStyles } from 'src/styles.ts';
 import { Link } from 'react-router-dom';
@@ -33,7 +33,7 @@ const Form = ({
   link,
   linkButtonText,
   submitButtonText,
-  submitMethod
+  submitMethod,
 }: FormProps) => {
   const [notificationApi, contextHolder] = notification.useNotification();
   const [loading, setLoading] = useState<boolean>(false);
@@ -46,7 +46,7 @@ const Form = ({
       const { username, password } = values;
       const { token, id }: Pick<UserInfo, 'token' | 'id'> = await submitMethod({
         username,
-        password
+        password,
       });
 
       localStorage.setItem('token', token);
@@ -58,7 +58,7 @@ const Form = ({
       notificationApi.error({
         message: 'Error',
         description: error?.message || 'Unknown error',
-        placement: 'top'
+        placement: 'top',
       });
     } finally {
       setLoading(false);

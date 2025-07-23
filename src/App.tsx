@@ -11,8 +11,8 @@ function App() {
         <ConfigProvider
           theme={{
             token: {
-              colorPrimary: '#21005d'
-            }
+              colorPrimary: '#21005d',
+            },
           }}
         >
           <AppRouter />

@@ -2,7 +2,7 @@ import {
   messageStyles,
   messageTitleWrapperStyles,
   messageWrapperStyles,
-  titleStyles
+  titleStyles,
 } from 'modules/chat/common/messageWrapper/styles.ts';
 import { Flex, Typography } from 'antd';
 import { getFormattedDate } from 'utils/getFormattedDate.ts';
@@ -12,7 +12,7 @@ const { Text } = Typography;
 const MessageWrapper = ({
   username,
   created_at,
-  content
+  content,
 }: Omit<Message, 'id'>) => {
   return (
     <Flex align="start" vertical style={messageWrapperStyles}>

@@ -6,7 +6,7 @@ export const headerStyle: CSSProperties = {
   color: '#fff',
   height: 64,
   paddingInline: 48,
-  lineHeight: '64px'
+  lineHeight: '64px',
 };
 
 export const contentStyle: CSSProperties = {
@@ -16,13 +16,13 @@ export const contentStyle: CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: 32
+  padding: 32,
 };
 
 export const footerStyle: CSSProperties = {
   textAlign: 'center',
   background: 'transparent',
-  color: '#fff'
+  color: '#fff',
 };
 
 export const layoutStyle: CSSProperties = {
@@ -32,9 +32,9 @@ export const layoutStyle: CSSProperties = {
   overflow: 'hidden',
   width: '100%',
   maxWidth: '100%',
-  height: '100svh'
+  height: '100svh',
 };
 
 export const titleStyles: CSSProperties = {
-  color: '#21005d'
+  color: '#21005d',
 };

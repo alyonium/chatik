@@ -23,7 +23,7 @@ const Chat = () => {
 
   const sendMessage = () => {
     socket.emit('new message', {
-      content: newMessage
+      content: newMessage,
     });
 
     setNewMessage('');
@@ -31,7 +31,7 @@ const Chat = () => {
 
   useEffect(() => {
     socket.auth = {
-      token: `Bearer ${localStorage.getItem('token')}`
+      token: `Bearer ${localStorage.getItem('token')}`,
     };
 
     socket.connect();

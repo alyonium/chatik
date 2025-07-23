@@ -1,7 +1,6 @@
 {
-    "trailingComma": "none",
-    "singleQuote": true,
-    "quoteProps": "consistent",
-    "endOfLine": "auto"
+  "trailingComma": "all",
+  "singleQuote": true,
+  "quoteProps": "consistent",
+  "endOfLine": "auto"
 }
-
