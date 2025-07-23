@@ -1,4 +1,4 @@
-import { type FormProps as AntFormProps, notification } from 'antd';
+import { notification } from 'antd';
 import { Button, Form as AntForm, Input, Typography, Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import {
@@ -39,7 +39,7 @@ const Form = ({
   const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  const onSubmit = async (values: AntFormProps<UserCredentials>) => {
+  const onSubmit = async (values: UserCredentials) => {
     setLoading(true);
 
     try {
