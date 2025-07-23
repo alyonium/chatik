@@ -1,12 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Layout, Flex } from 'antd';
 import { Typography } from 'antd';
-import {
-  headerStyle,
-  layoutStyle,
-  contentStyle,
-  titleStyles,
-} from './styles.ts';
+import { headerStyle, layoutStyle, contentStyle, titleStyles } from './styles';
 
 const { Title } = Typography;
 const { Header, Content } = Layout;

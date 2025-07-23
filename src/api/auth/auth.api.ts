@@ -1,6 +1,6 @@
-import baseApi from 'api/base.api.ts';
+import baseApi from 'api/base.api';
 import axios from 'axios';
-import type { UserCredentials, UserInfo } from 'types/types.ts';
+import type { UserCredentials, UserInfo } from 'types/types';
 
 export const login = async (params: UserCredentials): Promise<UserInfo> => {
   try {

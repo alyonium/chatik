@@ -1,5 +1,5 @@
-import Form from 'modules/auth/common/form/Form.tsx';
-import { authApi } from 'api/auth/auth.api.ts';
+import Form from 'modules/auth/common/form/Form';
+import { authApi } from 'api/auth/auth.api';
 
 const Login = () => {
   return (

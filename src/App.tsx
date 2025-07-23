@@ -1,7 +1,7 @@
 import './App.css';
 import { StrictMode } from 'react';
 import { BrowserRouter } from 'react-router';
-import AppRouter from './router/AppRouter.tsx';
+import AppRouter from './router/AppRouter';
 import { ConfigProvider } from 'antd';
 
 function App() {

@@ -6,10 +6,10 @@ import {
   textStyles,
   titleStyles,
   linkStyles,
-} from 'modules/auth/common/form/styles.ts';
-import { baseContainerStyles } from 'src/styles.ts';
+} from 'modules/auth/common/form/styles';
+import { baseContainerStyles } from 'src/styles';
 import { Link } from 'react-router-dom';
-import type { UserCredentials, UserInfo } from 'types/types.ts';
+import type { UserCredentials, UserInfo } from 'types/types';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 

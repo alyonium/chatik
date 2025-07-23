@@ -3,10 +3,10 @@ import {
   messageTitleWrapperStyles,
   messageWrapperStyles,
   titleStyles,
-} from 'modules/chat/common/messageWrapper/styles.ts';
+} from 'modules/chat/common/messageWrapper/styles';
 import { Flex, Typography } from 'antd';
-import { getFormattedDate } from 'utils/getFormattedDate.ts';
-import type { Message } from 'types/types.ts';
+import { getFormattedDate } from 'utils/getFormattedDate';
+import type { Message } from 'types/types';
 const { Text } = Typography;
 
 const MessageWrapper = ({

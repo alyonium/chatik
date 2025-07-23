@@ -12,6 +12,6 @@ export type UserInfo = UserCredentials & {
 export type Message = {
   id?: number;
   username: string;
-  created_at: Date;
+  created_at: string;
   content: string;
 };

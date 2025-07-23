@@ -1,4 +1,4 @@
-export const getFormattedDate = (date: Date) => {
+export const getFormattedDate = (date: string): string => {
   return new Date(date).toLocaleString('en-GB', {
     day: '2-digit',
     month: 'long',
