@@ -54,12 +54,14 @@ const Form = ({
       localStorage.setItem('username', username);
 
       navigate('/chat');
-    } catch (error: { message: string }) {
-      notificationApi.error({
-        message: 'Error',
-        description: error?.message || 'Unknown error',
-        placement: 'top',
-      });
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        notificationApi.error({
+          message: 'Error',
+          description: error?.message || 'Unknown error',
+          placement: 'top',
+        });
+      }
     } finally {
       setLoading(false);
     }
