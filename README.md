@@ -1,4 +1,4 @@
-# Chatik
+# Chatik 💬
 
 ### Deploy:
 
@@ -12,6 +12,7 @@
 - TypeScript
 - Ant Design
 - Socket IO
+- CSS-in-JS
 
 #### Back
 
@@ -25,6 +26,12 @@ This app features: Registration, Login, Chat.
 
 #### Registration
 
+Simple register form with validation.
+
 #### Login
 
+Simple login form with validation.
+
 #### Chat
+
+Common chat for all registered users. Supports only text messages. 

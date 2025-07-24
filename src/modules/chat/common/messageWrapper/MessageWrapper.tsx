@@ -3,7 +3,7 @@ import {
   messageTitleWrapperStyles,
   messageWrapperStyles,
   titleStyles,
-} from 'modules/chat/common/messageWrapper/styles';
+} from 'modules/chat/common/messageWrapper/MessageWrapper.styles.ts';
 import { Flex, Typography } from 'antd';
 import { getFormattedDate } from 'utils/getFormattedDate';
 import type { Message } from 'types/types';

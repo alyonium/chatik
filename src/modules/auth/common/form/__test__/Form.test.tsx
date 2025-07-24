@@ -46,6 +46,8 @@ describe('AuthForm', () => {
     fireEvent.click(screen.getByText(/log in/i));
 
     await waitFor(() => {
+      expect(screen.getByLabelText(/username/i)).toBeValid();
+      expect(screen.getByLabelText(/password/i)).toBeValid();
       expect(mockSubmitMethod).toHaveBeenCalledWith({
         username: 'Alice',
         password: 'Alice_password',
@@ -63,6 +65,8 @@ describe('AuthForm', () => {
       expect(screen.getByText(/please input your password!/i));
     });
 
+    expect(screen.getByLabelText(/username/i)).not.toBeValid();
+    expect(screen.getByLabelText(/password/i)).not.toBeValid();
     expect(mockSubmitMethod).not.toHaveBeenCalled();
   });
 });

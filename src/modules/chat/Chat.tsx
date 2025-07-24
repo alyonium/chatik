@@ -2,7 +2,10 @@ import { Input, Button, Flex, Typography } from 'antd';
 import { socket } from 'api/chat/chat.api';
 import { useState, useEffect, useRef } from 'react';
 import type { Message } from 'types/types';
-import { containerStyles, messagesWrapperStyles } from 'modules/chat/styles';
+import {
+  containerStyles,
+  messagesWrapperStyles,
+} from 'modules/chat/Chat.styles.ts';
 import { useNavigate } from 'react-router-dom';
 import MessageWrapper from 'modules/chat/common/messageWrapper/MessageWrapper';
 import { baseContainerStyles } from 'src/styles';

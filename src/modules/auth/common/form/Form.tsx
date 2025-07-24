@@ -6,7 +6,7 @@ import {
   textStyles,
   titleStyles,
   linkStyles,
-} from 'modules/auth/common/form/styles';
+} from 'modules/auth/common/form/Form.styles.ts';
 import { baseContainerStyles } from 'src/styles';
 import { Link } from 'react-router-dom';
 import type { UserCredentials, UserInfo } from 'types/types';
