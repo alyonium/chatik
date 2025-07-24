@@ -54,7 +54,7 @@ const Form = ({
       localStorage.setItem('username', username);
 
       navigate('/chat');
-    } catch (error) {
+    } catch (error: { message: string }) {
       notificationApi.error({
         message: 'Error',
         description: error?.message || 'Unknown error',
