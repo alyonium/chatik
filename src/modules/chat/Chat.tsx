@@ -1,4 +1,4 @@
-import { Input, Button, Flex, Typography } from 'antd';
+import { Input, Button, Flex, Typography, Spin } from 'antd';
 import { socket } from 'api/chat/chat.api';
 import { useState, useEffect, useRef } from 'react';
 import type { Message } from 'types/types';
@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import MessageWrapper from 'modules/chat/common/messageWrapper/MessageWrapper';
 import { baseContainerStyles } from 'src/styles';
 import { ROUTE } from 'router/const.ts';
+import { LoadingOutlined } from '@ant-design/icons';
 
 const { TextArea } = Input;
 const { Text } = Typography;
@@ -71,29 +72,50 @@ const Chat = () => {
     scrollToBottom();
   }, [messages]);
 
-  return (
-    <Flex
-      gap="middle"
-      vertical
-      style={{ ...containerStyles, ...baseContainerStyles }}
-    >
-      {loading ? (
+  const getContent = () => {
+    if (loading) {
+      return (
         <Flex
           align="center"
           justify="center"
           vertical
           style={messagesWrapperStyles}
         >
-          <Text>Loading chat...</Text>
+          <Spin indicator={<LoadingOutlined spin />} />
         </Flex>
-      ) : (
-        <Flex gap="middle" align="start" vertical style={messagesWrapperStyles}>
-          {messages.map((message) => (
-            <MessageWrapper key={message.id} {...message} />
-          ))}
-          <div ref={messagesEndRef} />
+      );
+    }
+
+    if (messages.length === 0) {
+      return (
+        <Flex
+          align="center"
+          justify="center"
+          vertical
+          style={messagesWrapperStyles}
+        >
+          <Text>Chat is empty</Text>
         </Flex>
-      )}
+      );
+    }
+
+    return (
+      <Flex gap="middle" align="start" vertical style={messagesWrapperStyles}>
+        {messages.map((message) => (
+          <MessageWrapper key={message.id} {...message} />
+        ))}
+        <div ref={messagesEndRef} />
+      </Flex>
+    );
+  };
+
+  return (
+    <Flex
+      gap="middle"
+      vertical
+      style={{ ...containerStyles, ...baseContainerStyles }}
+    >
+      {getContent()}
 
       <Flex gap="middle" align="center" justify="space-between">
         <TextArea
