@@ -3,6 +3,7 @@ import Form from 'modules/auth/common/form/Form';
 import { BrowserRouter } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import { vi } from 'vitest';
+import { ROUTE } from 'router/const.ts';
 
 const mockSubmitMethod = vi.fn();
 
@@ -14,7 +15,7 @@ const renderForm = () =>
           formName="login"
           title="Login"
           linkDescription="Don't have an account?"
-          link="/register"
+          link={ROUTE.REGISTER}
           linkButtonText="Register"
           submitButtonText="Log in"
           submitMethod={mockSubmitMethod}

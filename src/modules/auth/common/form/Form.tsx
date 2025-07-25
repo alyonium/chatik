@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import type { UserCredentials, UserInfo } from 'types/types';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ROUTE } from 'router/const.ts';
 
 const { Item } = AntForm;
 const { Title, Paragraph } = Typography;
@@ -53,7 +54,7 @@ const Form = ({
       localStorage.setItem('id', `${id}`);
       localStorage.setItem('username', username);
 
-      navigate('/chat');
+      navigate(ROUTE.CHAT);
     } catch (error: unknown) {
       if (error instanceof Error) {
         notificationApi.error({

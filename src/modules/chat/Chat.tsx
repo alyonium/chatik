@@ -9,6 +9,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import MessageWrapper from 'modules/chat/common/messageWrapper/MessageWrapper';
 import { baseContainerStyles } from 'src/styles';
+import { ROUTE } from 'router/const.ts';
 
 const { TextArea } = Input;
 const { Text } = Typography;
@@ -45,7 +46,7 @@ const Chat = () => {
         error.message === 'Authentication token missing'
       ) {
         socket.disconnect();
-        navigate('/login');
+        navigate(ROUTE.LOGIN);
       }
     });
 

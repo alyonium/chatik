@@ -1,5 +1,6 @@
 import Form from 'modules/auth/common/form/Form';
 import { authApi } from 'api/auth/auth.api';
+import { ROUTE } from 'router/const.ts';
 
 const Register = () => {
   return (
@@ -9,7 +10,7 @@ const Register = () => {
       submitButtonText="Sign up"
       linkDescription="Already have an account?"
       linkButtonText="Login"
-      link="/login"
+      link={ROUTE.LOGIN}
       submitMethod={authApi.register}
     />
   );

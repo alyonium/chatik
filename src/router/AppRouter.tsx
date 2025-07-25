@@ -4,15 +4,16 @@ import Login from 'modules/auth/components/login/Login';
 import Register from 'modules/auth/components/register/Register';
 import Chat from 'modules/chat/Chat';
 import { Navigate } from 'react-router-dom';
+import { ROUTE } from 'router/const.ts';
 
 const AppRouter = () => {
   return (
     <Routes>
       <Route element={<BaseLayout />}>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/chat" element={<Chat />} />
-        <Route path="*" element={<Navigate to="/chat" replace />} />
+        <Route path={ROUTE.LOGIN} element={<Login />} />
+        <Route path={ROUTE.REGISTER} element={<Register />} />
+        <Route path={ROUTE.CHAT} element={<Chat />} />
+        <Route path="*" element={<Navigate to={ROUTE.CHAT} replace />} />
       </Route>
     </Routes>
   );
